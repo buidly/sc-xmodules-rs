@@ -2,7 +2,6 @@
 
 members = [
     "multi-token-pay",
-    "referral-module",
     "tests",
     "tests/meta"
 ]

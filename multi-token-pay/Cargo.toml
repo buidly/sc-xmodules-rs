@@ -7,6 +7,11 @@ authors = [
     "Vlad Nedelcu <vlad.nedelcu@stakegold.com>",
     "Alex Jilavu <alex.jilavu@stakegold.com>"
 ]
+description = "Payments tokens management contract module. This module is used to add/remove tokens that are accepted as payment for the contract."
+documentation = "https://github.com/StakeGold/sc-open-modules/README.md"
+repository = "https://github.com/StakeGold/sc-open-modules"
+keywords = ["elrond", "smart contract", "payment", "tokens", "cryptocurrency", "multiversx"]
+
 
 [lib]
 path = "src/lib.rs"
