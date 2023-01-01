@@ -1,4 +1,3 @@
-#![no_std]
 
 use elrond_wasm::require;
 use elrond_wasm::storage::mappers::SingleValueMapper;

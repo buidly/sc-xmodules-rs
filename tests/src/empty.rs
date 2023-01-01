@@ -1,12 +1,12 @@
 #![no_std]
 
-use multi_token_pay;
+use open_modules;
 
 elrond_wasm::imports!();
 
 #[elrond_wasm::contract]
 pub trait EmptyTestContract:
-    multi_token_pay::MultiTokenPayModule
+    open_modules::multi_token_payment::MultiTokenPayModule
 {
     #[init]
     fn init(&self) {}

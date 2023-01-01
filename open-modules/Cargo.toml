@@ -1,5 +1,5 @@
 [package]
-name = "multi-token-pay"
+name = "open-modules"
 version = "0.1.0"
 edition = "2021"
 license = "GPL-3.0-only"
@@ -10,8 +10,8 @@ authors = [
 description = "Payments tokens management contract module. This module is used to add/remove tokens that are accepted as payment for the contract."
 documentation = "https://github.com/StakeGold/sc-open-modules/README.md"
 repository = "https://github.com/StakeGold/sc-open-modules"
-keywords = ["elrond", "smart contract", "payment", "tokens", "cryptocurrency", "multiversx"]
-
+keywords = ["multiversx", "wasm", "webassembly", "blockchain", "contract"]
+categories = ["no-std", "wasm", "cryptography::cryptocurrencies"]
 
 [lib]
 path = "src/lib.rs"

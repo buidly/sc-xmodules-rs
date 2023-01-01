@@ -17,5 +17,5 @@ version = "0.38.0"
 [dev-dependencies.elrond-wasm-debug]
 version = "0.38.0"
 
-[dependencies.multi-token-pay]
-path = "../multi-token-pay"
+[dependencies.open-modules]
+path = "../open-modules"

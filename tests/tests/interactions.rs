@@ -6,8 +6,7 @@ use elrond_wasm_debug::{
 
 use tests;
 use tests::EmptyTestContract;
-use multi_token_pay::MultiTokenPayModule;
-
+use open_modules::multi_token_payment::MultiTokenPayModule;
 const WASM_PATH: &str = "../output/tests.wasm";
 
 
