@@ -1,0 +1,9 @@
+# VSCode
+.vscode
+
+# Rust target and output
+target/
+output/
+
+# Rust build artifacts
+Cargo.lock

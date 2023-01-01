@@ -1,0 +1,15 @@
+[package]
+name = "multi-token-pay"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-only"
+authors = [
+    "Vlad Nedelcu <vlad.nedelcu@stakegold.com>",
+    "Alex Jilavu <alex.jilavu@stakegold.com>"
+]
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies.elrond-wasm]
+version = "0.38.0"

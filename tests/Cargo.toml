@@ -1,0 +1,21 @@
+[package]
+name = "tests"
+version = "0.0.0"
+authors = [ "you",]
+edition = "2018"
+publish = false
+
+[lib]
+path = "src/empty.rs"
+
+[dev-dependencies]
+num-bigint = "0.4.2"
+
+[dependencies.elrond-wasm]
+version = "0.38.0"
+
+[dev-dependencies.elrond-wasm-debug]
+version = "0.38.0"
+
+[dependencies.multi-token-pay]
+path = "../multi-token-pay"
