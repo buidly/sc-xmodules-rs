@@ -61,5 +61,10 @@ where
             tx.assert_ok();
         }
     }
+
+    /// Creates an empty account and returns its address
+    pub fn create_empty_account(&mut self) -> Address {
+        self.b_wrapper.create_user_account(&rust_biguint!(0u64))
+    }
 }
 
