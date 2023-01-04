@@ -1,7 +1,7 @@
 [workspace]
 
 members = [
-    "open-modules",
+    "xmodules",
     "tests",
     "tests/meta"
 ]

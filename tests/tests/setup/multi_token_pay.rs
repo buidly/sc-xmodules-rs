@@ -1,52 +1,17 @@
-use elrond_wasm::{types::{Address, EgldOrEsdtTokenIdentifier}};
-use elrond_wasm_debug::{
-    DebugApi,
-    testing_framework::{BlockchainStateWrapper, ContractObjWrapper}, rust_biguint, managed_biguint, tx_mock::TxTokenTransfer
-};
+use elrond_wasm::types::EgldOrEsdtTokenIdentifier;
 
-use tests;
-use tests::EmptyTestContract;
-use open_modules::multi_token_payment::MultiTokenPayModule;
-const WASM_PATH: &str = "../output/tests.wasm";
+use elrond_wasm_debug::{DebugApi, rust_biguint, managed_biguint};
+use elrond_wasm_debug::tx_mock::TxTokenTransfer;
 
+use xmodules::multi_token_payment::MultiTokenPayModule;
 
-pub struct TestsSetup<Builder>
-where
-    Builder: 'static + Copy + Fn() -> tests::ContractObj<DebugApi>
-{
-    pub owner: Address,
-    pub b_wrapper: BlockchainStateWrapper,
-    pub c_wrapper: ContractObjWrapper<tests::ContractObj<DebugApi>, Builder>
-}
+use super::base::TestsSetup;
+
 
 impl<Builder> TestsSetup<Builder>
 where
     Builder: 'static + Copy + Fn() -> tests::ContractObj<DebugApi>
 {
-    pub fn init(builder: Builder) -> Self {
-        let mut blockchain_wrapper = BlockchainStateWrapper::new();
-
-        let owner_account = blockchain_wrapper.create_user_account(&rust_biguint!(0u64));
-        let contract_wrapper = blockchain_wrapper.create_sc_account(
-            &rust_biguint!(0u64),
-            Some(&owner_account),
-            builder,
-            WASM_PATH
-        );
-
-        blockchain_wrapper
-            .execute_tx(&owner_account, &contract_wrapper, &rust_biguint!(0u64), |sc| {
-                sc.init();
-            })
-            .assert_ok();
-
-        Self {
-            owner: owner_account,
-            b_wrapper: blockchain_wrapper,
-            c_wrapper: contract_wrapper
-        }
-    }
-
     pub fn add_payment_token_esdt(&mut self, token: &[u8], amount: u64) {
         self.b_wrapper
             .execute_tx(&self.owner, &self.c_wrapper, &rust_biguint!(0u64), |sc| {
@@ -77,11 +42,7 @@ where
                 sc.require_valid_payment();
             });
 
-        if let Some(expected_msg) = expected_err {
-            tx.assert_error(4, expected_msg);
-        } else {
-            tx.assert_ok();
-        }
+        self.assert_result(tx, expected_err);
     }
 
     pub fn require_valid_payments<const X: usize>(&mut self, payments: &[TxTokenTransfer], expected_err: Option<&str>) {
@@ -90,10 +51,6 @@ where
                 sc.require_valid_payments::<X>();
             });
 
-        if let Some(expected_msg) = expected_err {
-            tx.assert_error(4, expected_msg);
-        } else {
-            tx.assert_ok();
-        }
+        self.assert_result(tx, expected_err);
     }
 }

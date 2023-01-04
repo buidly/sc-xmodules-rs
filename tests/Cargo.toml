@@ -17,5 +17,5 @@ version = "0.38.0"
 [dev-dependencies.elrond-wasm-debug]
 version = "0.38.0"
 
-[dependencies.open-modules]
-path = "../open-modules"
+[dependencies.xmodules]
+path = "../xmodules"

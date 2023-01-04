@@ -1,7 +1,7 @@
-mod interactions;
+mod setup;
 
 use elrond_wasm_debug::{rust_biguint, tx_mock::TxTokenTransfer};
-use interactions::*;
+use setup::TestsSetup;
 
 const ESDT_TOKEN: &[u8] = b"TST-j28ml0";
 const SECOND_TOKEN: &[u8] = b"TKN-9b4sdo";
@@ -58,6 +58,4 @@ fn test_require_valid_payments() {
 
     setup.require_valid_payments::<3>(&payments, Some("incorrect number of ESDT transfers"));
     setup.require_valid_payments::<2>(&payments, None);
-
-
 }
