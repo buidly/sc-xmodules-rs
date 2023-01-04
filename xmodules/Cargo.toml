@@ -1,11 +1,11 @@
 [package]
 name = "xmodules"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 license = "GPL-3.0-only"
 authors = [ "Buidly Core Team <contact@buidly.com>"]
 description = "Smart contracts modules for MultiversX blockchain"
-documentation = "https://github.com/StakeGold/sc-xmodules-rs/README.md"
+documentation = "https://github.com/StakeGold/sc-xmodules-rs/blob/main/README.md"
 repository = "https://github.com/StakeGold/sc-xmodules-rs"
 keywords = ["multiversx", "wasm", "webassembly", "blockchain", "contract"]
 categories = ["no-std", "wasm", "cryptography::cryptocurrencies"]
