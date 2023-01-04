@@ -3,7 +3,7 @@ use elrond_wasm_debug::{DebugApi, rust_biguint, managed_buffer, managed_biguint,
 
 use super::TestsSetup;
 
-use xmodules::referrals::{ReferralModule};
+use xmodules::referrals::ReferralModule;
 
 pub const REWARDS_TOKEN_ID: &[u8] = b"RWD-8j5bp0";
 
@@ -22,7 +22,7 @@ where
 
     pub fn register_referral_tag_with_caller(&mut self, tag: &[u8], caller: &Address, expected_err: Option<&str>) {
         let tx = self.b_wrapper
-            .execute_tx(&caller, &self.c_wrapper, &rust_biguint!(0u64), |sc| {
+            .execute_tx(caller, &self.c_wrapper, &rust_biguint!(0u64), |sc| {
                 sc.register_referral_tag(managed_buffer!(tag));
             });
 
