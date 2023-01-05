@@ -67,4 +67,3 @@ where
         self.b_wrapper.create_user_account(&rust_biguint!(0u64))
     }
 }
-
