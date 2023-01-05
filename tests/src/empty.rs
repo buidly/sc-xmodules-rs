@@ -1,12 +1,13 @@
 #![no_std]
 
-use xmodules;
+use xmodules::{multi_token_payment, referrals};
 
 elrond_wasm::imports!();
 
 #[elrond_wasm::contract]
 pub trait EmptyTestContract:
-    xmodules::multi_token_payment::MultiTokenPayModule
+    multi_token_payment::MultiTokenPayModule
+    + referrals::ReferralModule
 {
     #[init]
     fn init(&self) {}

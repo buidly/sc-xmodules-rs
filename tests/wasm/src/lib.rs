@@ -5,9 +5,9 @@
 ////////////////////////////////////////////////////
 
 // Init:                                 1
-// Endpoints:                            2
+// Endpoints:                           15
 // Async Callback (empty):               1
-// Total number of exported functions:   4
+// Total number of exported functions:  17
 
 #![no_std]
 
@@ -16,6 +16,19 @@ elrond_wasm_node::wasm_endpoints! {
     (
         addPaymentToken
         removePaymentToken
+        registerReferralTag
+        claimReferralFees
+        updateTier
+        addTierDetails
+        removeTierDetails
+        setReferralFeePercentage
+        removeReferralTag
+        getCollectedFeeAmount
+        getUserTag
+        getReferralFeePercentage
+        getTierDetails
+        getTagAccumulatedVolume
+        getWrappedToken
     )
 }
 
