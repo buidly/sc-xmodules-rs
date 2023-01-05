@@ -12,12 +12,4 @@ The user manual for the xmodules can be found in the [xmodules/README.md](https:
 
 
 ## Community
-
-Thank you for taking time and being interested in XModules crate. There are many ways you can contribute to the repository:
-- Use `xmodules` within your projects. Give feedback or find bugs that you can report.
-- Implementing new modules
-- Review Pull Requests that from others
-- Write documentation
-- Participate in discussions
-
-
+The community guidelines for contributions can be found in [CONTRIBUTING.md](https://github.com/StakeGold/sc-xmodules-rs/blob/main/.github.CONTRIBUTING.md)
