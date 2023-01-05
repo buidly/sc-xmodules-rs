@@ -97,7 +97,7 @@ module.
 > NOTE: Check out the base struct for the base implementation that also contains some helper methods.
 
 Now that you created the contract interactions, you also need to create the tests. Create a new file in `tests` using
-the prefix test and module name, in this case create the file `tests/test_my_module.rs`. In this file import the tests
+the 'test' prefix and module name, in this case create the file `tests/test_my_module.rs`. In this file import the tests
 setup that will automatically include your contract interactions to use in the tests.
 
 *tests/test_my_module.rs*
