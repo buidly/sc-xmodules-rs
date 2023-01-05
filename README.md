@@ -12,4 +12,4 @@ The user manual for the xmodules can be found in the [xmodules/README.md](https:
 
 
 ## Community
-The community guidelines for contributions can be found in [CONTRIBUTING.md](https://github.com/StakeGold/sc-xmodules-rs/blob/main/.github.CONTRIBUTING.md)
+The community guidelines for contributions can be found in [CONTRIBUTING.md](https://github.com/StakeGold/sc-xmodules-rs/blob/main/.github/CONTRIBUTING.md)

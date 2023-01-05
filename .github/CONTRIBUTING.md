@@ -16,6 +16,20 @@ your contributions are accepted and merged as smoothly as possible.
 
 Thank you again for your interest in contributing to our project. We look forward to working with you!
 
+## Bug Reports
+
+Found something that xModules should support? Stumbled upon some unexpected behavior?
+
+Possible bugs may be raised as a "Potential Issue" discussion, feature requests may be raised as an "Ideas" discussion.
+We can then determine if the discussion needs to be escalated into an "Issue" or not, or if we'd consider a pull request.
+
+Try to be more descriptive as you can and in case of a bug report, provide as much information as possible like:
+
+- mx-sdk version used
+- Code snippet
+- Error traceback
+- You should always try to reduce any examples to the simplest possible case that demonstrates the issue.
+
 ## Implementing a new module
 
 For all the engineers and builders out there that what to implement a new module we assembled a detailed guide for you
