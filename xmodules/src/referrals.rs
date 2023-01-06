@@ -17,6 +17,8 @@ pub struct TierDetails<M: ManagedTypeApi>  {
 #[elrond_wasm::module]
 pub trait ReferralModule {
 
+    /// Registers a new referral tag. The tag must be unique and the caller
+    /// must not already own a tag.
     #[endpoint(registerReferralTag)]
     fn register_referral_tag(&self, tag: ManagedBuffer) {
         let caller = self.blockchain().get_caller();
@@ -36,6 +38,7 @@ pub trait ReferralModule {
         sc_panic!("No tier with min volume 0");
     }
 
+    /// Claims the referral fees for the caller. The caller must own a tag.
     #[endpoint(claimReferralFees)]
     fn claim_referral_fees(&self) {
         let caller = self.blockchain().get_caller();
@@ -49,6 +52,9 @@ pub trait ReferralModule {
         self.collected_tag_fees(&user_tag).clear();
     }
 
+    /// Updates the tier for the caller. The caller must own a tag.
+    /// Updating the tier is done by comparing the caller's accumulated volume
+    /// with the tiers' minimum volumes.
     #[endpoint(updateTier)]
     fn update_tier(&self) -> ManagedBuffer {
         let caller = self.blockchain().get_caller();
@@ -72,6 +78,7 @@ pub trait ReferralModule {
         tier_name
     }
 
+    /// Adds multiple tiers at once. The tiers must be unique.
     #[endpoint(addTierDetails)]
     fn add_tier_details(&self, tiers: MultiValueEncoded<TierDetailsArg<Self::Api>>) {
         for tier in tiers.into_iter() {
@@ -87,6 +94,7 @@ pub trait ReferralModule {
         }
     }
 
+    /// Removes a tier by name. The tier must exist.
     #[only_owner]
     #[endpoint(removeTierDetails)]
     fn remove_tier_details(&self, name: ManagedBuffer) {
@@ -102,6 +110,7 @@ pub trait ReferralModule {
         sc_panic!("Tier not found");
     }
 
+    /// Sets the referral fee percentage for a tag. The tag must exist.
     #[only_owner]
     #[endpoint(setReferralFeePercentage)]
     fn set_referral_fee_percentage(&self, tag: ManagedBuffer, new_percentage: u64) {
@@ -110,6 +119,8 @@ pub trait ReferralModule {
         self.referral_tag_percent(&tag).set(new_percentage);
     }
 
+    /// Removes a tag. The tag must exist. When the tag is removed the user
+    /// automatically receives all the collected fees.
     #[only_owner]
     #[endpoint(removeReferralTag)]
     fn remove_referral_tag(&self, user_address: ManagedAddress) {
