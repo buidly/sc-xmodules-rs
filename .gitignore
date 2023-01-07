@@ -7,3 +7,6 @@ output/
 
 # Rust build artifacts
 Cargo.lock
+
+# DOCS
+html/
