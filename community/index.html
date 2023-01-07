@@ -17,7 +17,7 @@
     
     
       
-        <title>Contributing to xModules - xModules</title>
+        <title>Contributing - xModules</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#contributing-to-xmodules" class="md-skip">
+        <a href="#contributing" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Contributing to xModules
+              Contributing
             
           </span>
         </div>
@@ -257,7 +257,7 @@
   
     <li class="md-nav__item">
       <a href="../usage/" class="md-nav__link">
-        Using xModules
+        Usage
       </a>
     </li>
   
@@ -281,12 +281,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Contributing to xModules
+          Contributing
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Contributing to xModules
+        Contributing
       </a>
       
         
@@ -438,23 +438,25 @@
 
 
 
-<h1 id="contributing-to-xmodules">Contributing to xModules<a class="headerlink" href="#contributing-to-xmodules" title="Permanent link">¶</a></h1>
+<h1 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">¶</a></h1>
 <p>Welcome to the contributing guidelines for <strong>xModules</strong>! We appreciate any and all contributions and are grateful for
 your efforts to improve our project. In order to streamline the contribution process and make it as easy as possible for
 you to help out, we have put together the following guidelines. Please take a moment to read through them before
 you begin.</p>
-<p>We welcome contributions in the form of:
-- code
-- documentation
-- bug reports
-- feature requests</p>
+<p>We welcome contributions in the form of:</p>
+<ul>
+<li>code</li>
+<li>documentation</li>
+<li>bug reports</li>
+<li>feature requests</li>
+</ul>
 <p>Note: If you are unsure about something, please don’t hesitate to ask. We are here to help and want to make sure that
 your contributions are accepted and merged as smoothly as possible.</p>
 <p>Thank you again for your interest in contributing to our project. We look forward to working with you!</p>
 <h2 id="bug-reports">Bug Reports<a class="headerlink" href="#bug-reports" title="Permanent link">¶</a></h2>
-<p>Found something that xModules should support? Stumbled upon some unexpected behavior?</p>
-<p>Possible bugs may be raised as a “Potential Issue” discussion, feature requests may be raised as an “Ideas” discussion.
-We can then determine if the discussion needs to be escalated into an “Issue” or not, or if we’d consider a pull request.</p>
+<p>Found something that <strong>xModules</strong> should support? Stumbled upon some unexpected behavior?</p>
+<p>Possible bugs may be raised as a <em>“Potential Issue”</em> discussion, feature requests may be raised as an <em>“Ideas”</em> discussion.
+We can then determine if the discussion needs to be escalated into an <em>“Issue”</em> or not, or if we’d consider a pull request.</p>
 <p>Try to be more descriptive as you can and in case of a bug report, provide as much information as possible like:</p>
 <ul>
 <li>mx-sdk version used</li>
@@ -470,14 +472,14 @@ to follow. We start with the following steps:</p>
 added to a contract. For this example the name <code>MyModule</code> will be used to define the module we are trying to implement.</p>
 <p>Start by creating a new file inside the <code>xmodules</code> crate with the name <code>my_module.rs</code> and add it to the library root,
 meaning importing <code>my_module.rs</code> in <code>lib.rs</code></p>
-<p><em>lib.rs</em>
+<p><em>xmodules/src/lib.rs</em>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#![no_std]</span><span class="w"></span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="o">..</span><span class="p">.</span><span class="w"></span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">my_module</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></p>
 <p>In <code>my_module.rs</code> implement the <code>MyModule</code> trait bt defined the trait with the module macro attribute to the trait
 <code>#[elrond_wasm::module]</code></p>
-<p><em>my_module.rs</em>
+<p><em>xmodules/src/my_module.rs</em>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#[elrond_wasm::module]</span><span class="w"></span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">pub</span><span class="w"> </span><span class="k">trait</span><span class="w"> </span><span class="n">MyNewModule</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="o">..</span><span class="p">.</span><span class="w"></span>
@@ -564,7 +566,7 @@ ecosystem.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../usage/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Using xModules" rel="prev">
+        <a href="../usage/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Usage" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -573,7 +575,7 @@ ecosystem.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Using xModules
+              Usage
             </div>
           </div>
         </a>
