@@ -12,4 +12,4 @@ Since the main SDK also provides a list of base modules that are used by the com
 
 ## Documentation
 
-You can find out about the project here in the [docs](https://stakegold.github.io/sc-xmodules-rs/)
+You can find out about the project here in the [docs](http://docs.xmodules.io/)
