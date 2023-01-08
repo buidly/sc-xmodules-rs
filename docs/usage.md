@@ -14,7 +14,7 @@ that is also defined by a crate, and add as a dependency the `xmodules` crate as
 ```toml
 # Please refer to the crates.io page for finding the latest version
 # https://crates.io/crates/xmodules
-[depdendencies.xmodules]
+[dependencies.xmodules]
 version = "0.x.x"
 ```
 
