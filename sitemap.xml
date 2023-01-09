@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://StakeGold.github.io/xmodules/</loc>
-         <lastmod>2023-01-07</lastmod>
+         <loc>https://docs.xmodules.io/</loc>
+         <lastmod>2023-01-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StakeGold.github.io/xmodules/community/</loc>
-         <lastmod>2023-01-07</lastmod>
+         <loc>https://docs.xmodules.io/community/</loc>
+         <lastmod>2023-01-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StakeGold.github.io/xmodules/usage/</loc>
-         <lastmod>2023-01-07</lastmod>
+         <loc>https://docs.xmodules.io/usage/</loc>
+         <lastmod>2023-01-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
