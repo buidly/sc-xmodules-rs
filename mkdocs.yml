@@ -2,9 +2,9 @@
 
 site_name: 'xModules'
 site_author: Buidly <contact@buidly.com>
-site_url: https://StakeGold.github.io/xmodules
-repo_url: https://github.com/StakeGold/sc-xmodules-rs.git
-repo_name: StakeGold/sc-xmodules-rs
+site_url: https://docs.xmodules.io/
+repo_url: https://github.com/buidly/sc-xmodules-rs.git
+repo_name: buidly/sc-xmodules-rs
 # TODO: make the edit icon smaller, the rest of the content is now smaller
 edit_uri: edit/master/docs
 docs_dir: docs

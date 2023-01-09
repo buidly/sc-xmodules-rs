@@ -12,8 +12,8 @@ We welcome contributions in the form of:
 -   bug reports
 -   feature requests
 
-Note: If you are unsure about something, please don't hesitate to ask. We are here to help and want to make sure that
-your contributions are accepted and merged as smoothly as possible.
+!!! note
+    If you are unsure about something, please don't hesitate to ask. We are here to help and want to make sure that your contributions are accepted and merged as smoothly as possible.
 
 Thank you again for your interest in contributing to our project. We look forward to working with you!
 
