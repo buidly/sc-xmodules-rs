@@ -66,4 +66,8 @@ where
     pub fn create_empty_account(&mut self) -> Address {
         self.b_wrapper.create_user_account(&rust_biguint!(0u64))
     }
+
+    pub fn check_balance(&mut self, token: &[u8], expected_amount: u64) {
+        self.b_wrapper.check_esdt_balance(&self.owner, &token, &rust_biguint!(expected_amount));
+    }
 }
