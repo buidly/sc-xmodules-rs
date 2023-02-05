@@ -1,5 +1,5 @@
-use elrond_wasm_debug::{DebugApi, rust_biguint, managed_token_id, managed_biguint};
-use xmodules::fee_manager::FeeManagerModule;
+use elrond_wasm_debug::{DebugApi, rust_biguint, managed_token_id, managed_biguint, tx_mock::TxTokenTransfer};
+use xmodules::{fee_manager::FeeManagerModule, fee_payment_validator::FeePaymentValidatorModule};
 
 use super::TestsSetup;
 
@@ -46,4 +46,29 @@ where
 
         self.b_wrapper.set_esdt_balance(&self.c_wrapper.address_ref(), fee_token, &rust_biguint!(amount));
     }
+
+    pub fn process_fee_payment_context(
+        &mut self,
+        payments: Vec<TxTokenTransfer>,
+        expected_out_payment: Vec<TxTokenTransfer>,
+        expected_err: Option<&str>,
+    ) {
+        let tx = self.b_wrapper
+            .execute_esdt_multi_transfer(&self.owner, &self.c_wrapper, &payments[..], |sc| {
+                let out_payments = sc.process_fee_from_payments();
+                for (i, out_payment) in out_payments.iter().enumerate() {
+                    let expected_out_payment = &expected_out_payment[i];
+                    assert_eq!(
+                        rust_biguint!(out_payment.amount.to_u64().unwrap()),
+                        expected_out_payment.value
+                    );
+                }
+            });
+
+        match expected_err {
+            Some(err) => tx.assert_error(4, err),
+            None => tx.assert_ok()
+        };
+    }
+
 }

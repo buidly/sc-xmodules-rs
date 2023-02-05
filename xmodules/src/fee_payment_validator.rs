@@ -2,7 +2,7 @@ elrond_wasm::imports!();
 
 
 #[elrond_wasm::module]
-pub trait FeePaymentValidator:
+pub trait FeePaymentValidatorModule:
     crate::fee_manager::FeeManagerModule
 {
 
@@ -35,7 +35,8 @@ pub trait FeePaymentValidator:
         }
 
         if payment.amount > fee_amount {
-            payment.amount -= fee_amount;
+            self.accumulated_fees().update(|x| *x += &fee_amount);
+            payment.amount -= &fee_amount;
 
             let mut result_payments = ManagedVec::new();
             result_payments.push(payment.clone());
@@ -56,21 +57,20 @@ pub trait FeePaymentValidator:
         for i in 0..payments.len() {
             let mut payment = payments.get(i);
             if payment.token_identifier == fee_token {
+                has_fee_payment = true;
+                self.accumulated_fees().update(|x| *x += &fee_amount);
+
                 if payment.amount > fee_amount {
                     payment.amount -= &fee_amount;
+                    break
                 }
 
                 if payment.amount == fee_amount {
                     payments.remove(i);
+                    break
                 }
 
-                if payment.amount < fee_amount {
-                    sc_panic!("Invalid fee payment provided");
-                }
-
-                self.accumulated_fees().update(|x| *x += fee_amount);
-                has_fee_payment = true;
-                break
+                sc_panic!("Not enough amount to pay the fee");
             }
         }
 
