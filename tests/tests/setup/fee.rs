@@ -44,7 +44,7 @@ where
             })
             .assert_ok();
 
-        self.b_wrapper.set_esdt_balance(&self.c_wrapper.address_ref(), fee_token, &rust_biguint!(amount));
+        self.b_wrapper.set_esdt_balance(self.c_wrapper.address_ref(), fee_token, &rust_biguint!(amount));
     }
 
     pub fn process_fee_payment_context(

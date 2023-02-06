@@ -49,7 +49,7 @@ fn test_one_payment_is_fee_total() {
     setup.b_wrapper.set_esdt_balance(&setup.owner, FEE_TOKEN, &rust_biguint!(FEE_AMOUNT));
 
     setup.process_fee_payment_context(
-        payments.clone(),
+        payments,
         vec![],
         None
     );

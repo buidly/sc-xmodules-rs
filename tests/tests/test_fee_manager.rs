@@ -18,12 +18,12 @@ fn test_set_fee_settings_and_withdraw() {
     let mut setup = TestsSetup::init(tests::contract_obj);
     setup.set_fee_settings(FEE_TOKEN, FEE_AMOUNT);
     setup.set_accumulated_fees(FEE_AMOUNT * 4, FEE_TOKEN);
-    setup.b_wrapper.check_esdt_balance(&setup.c_wrapper.address_ref(), FEE_TOKEN, &rust_biguint!(FEE_AMOUNT * 4));
+    setup.b_wrapper.check_esdt_balance(setup.c_wrapper.address_ref(), FEE_TOKEN, &rust_biguint!(FEE_AMOUNT * 4));
     setup.check_balance(FEE_TOKEN, 0);
     setup.set_fee_settings(b"NEW-s8k1l0", FEE_AMOUNT);
 
     setup.check_balance(FEE_TOKEN, FEE_AMOUNT * 4);
-    setup.b_wrapper.check_esdt_balance(&setup.c_wrapper.address_ref(), FEE_TOKEN, &rust_biguint!(0));
+    setup.b_wrapper.check_esdt_balance(setup.c_wrapper.address_ref(), FEE_TOKEN, &rust_biguint!(0));
 }
 
 #[test]
@@ -34,5 +34,5 @@ fn test_withdraw() {
 
     setup.withdraw_fees();
     setup.check_balance(FEE_TOKEN, FEE_AMOUNT * 4);
-    setup.b_wrapper.check_esdt_balance(&setup.c_wrapper.address_ref(), FEE_TOKEN, &rust_biguint!(0));
+    setup.b_wrapper.check_esdt_balance(setup.c_wrapper.address_ref(), FEE_TOKEN, &rust_biguint!(0));
 }

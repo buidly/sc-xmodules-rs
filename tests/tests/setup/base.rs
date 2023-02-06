@@ -68,6 +68,6 @@ where
     }
 
     pub fn check_balance(&mut self, token: &[u8], expected_amount: u64) {
-        self.b_wrapper.check_esdt_balance(&self.owner, &token, &rust_biguint!(expected_amount));
+        self.b_wrapper.check_esdt_balance(&self.owner, token, &rust_biguint!(expected_amount));
     }
 }
