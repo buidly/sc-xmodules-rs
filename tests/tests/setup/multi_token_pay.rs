@@ -38,7 +38,7 @@ where
 
     pub fn require_valid_payment(&mut self, token: &[u8], amount: u64, expected_err: Option<&str>) {
         let tx = self.b_wrapper
-            .execute_esdt_transfer(&self.owner, &self.c_wrapper, &token, 0, &rust_biguint!(amount), |sc| {
+            .execute_esdt_transfer(&self.owner, &self.c_wrapper, token, 0, &rust_biguint!(amount), |sc| {
                 sc.require_valid_payment();
             });
 
